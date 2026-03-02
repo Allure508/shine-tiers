@@ -1,6 +1,7 @@
 import applePay from "@/assets/payment/apple-pay.png";
 import mastercard from "@/assets/payment/mastercard.png";
 import paypal from "@/assets/payment/paypal.png";
+import ideal from "@/assets/payment/ideal.png";
 
 const VisaSvg = () => (
   <svg viewBox="0 0 750 471" className="h-6 w-auto" xmlns="http://www.w3.org/2000/svg">
@@ -9,36 +10,13 @@ const VisaSvg = () => (
   </svg>
 );
 
-const IdealSvg = () => (
-  <svg viewBox="0 0 100 100" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    {/* Outer rounded border */}
-    <rect x="3" y="3" width="94" height="94" rx="18" ry="18" fill="white" stroke="#2D2D2D" strokeWidth="5"/>
-    {/* Magenta shape with curved left side */}
-    <clipPath id="innerClip">
-      <rect x="6" y="6" width="88" height="88" rx="15" ry="15"/>
-    </clipPath>
-    <g clipPath="url(#innerClip)">
-      <path d="M42 6 L94 6 L94 94 L42 94 C42 94, 22 94, 12 80 C6 70, 6 58, 6 50 C6 42, 6 30, 12 20 C22 6, 42 6, 42 6 Z" fill="#CC0066"/>
-    </g>
-    {/* Black dot (i tittle) */}
-    <circle cx="26" cy="32" r="6.5" fill="#1A1A1A"/>
-    {/* Black bar (i stem) */}
-    <rect x="20" y="46" width="12" height="30" rx="2" fill="#1A1A1A"/>
-    {/* White "DEAL" text */}
-    <text x="64" y="68" textAnchor="middle" fill="white" fontSize="30" fontWeight="900" fontFamily="Arial Black, Arial, sans-serif" letterSpacing="1">D</text>
-    <text x="64" y="86" textAnchor="middle" fill="white" fontSize="13" fontWeight="900" fontFamily="Arial Black, Arial, sans-serif" letterSpacing="2.5">EAL</text>
-  </svg>
-);
-
-
-
 const PaymentIcons = () => {
   return (
     <div className="flex items-center justify-center gap-3 mt-4">
       <img src={applePay} alt="Apple Pay" className="h-6 w-auto opacity-70" />
       <VisaSvg />
       <img src={mastercard} alt="Mastercard" className="h-6 w-auto" />
-      <IdealSvg />
+      <img src={ideal} alt="iDeal" className="h-7 w-auto rounded" />
       <img src={paypal} alt="PayPal" className="h-6 w-auto" />
     </div>
   );
