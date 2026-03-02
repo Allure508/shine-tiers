@@ -1,6 +1,7 @@
 import { useState } from "react";
 import PricingToggle from "@/components/PricingToggle";
 import PricingCard from "@/components/PricingCard";
+import SubscriptionModal from "@/components/SubscriptionModal";
 
 const standardFeatures = (extraMonths: boolean) => [
   { text: "Plus Extra 2 Maanden", included: extraMonths },
@@ -42,9 +43,16 @@ const premiumPlans = [
 
 const Index = () => {
   const [isStandard, setIsStandard] = useState(true);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPlan, setSelectedPlan] = useState({ plan: "", price: "" });
   const plans = isStandard ? standardPlans : premiumPlans;
   const getFeatures = isStandard ? standardFeatures : premiumFeatures;
   const isPremium = !isStandard;
+
+  const handleSubscribe = (plan: string, price: string) => {
+    setSelectedPlan({ plan, price });
+    setModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen bg-background py-16 px-4">
@@ -64,10 +72,18 @@ const Index = () => {
               popular={plan.popular}
               premium={isPremium}
               badges={isPremium ? ["HD", "FHD", "4K"] : ["HD", "FHD"]}
+              onSubscribe={handleSubscribe}
             />
           ))}
         </div>
       </div>
+
+      <SubscriptionModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+        plan={selectedPlan.plan}
+        price={selectedPlan.price}
+      />
     </div>
   );
 };

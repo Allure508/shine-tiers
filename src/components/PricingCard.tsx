@@ -9,9 +9,10 @@ interface PricingCardProps {
   popular?: boolean;
   premium?: boolean;
   badges?: string[];
+  onSubscribe?: (plan: string, price: string) => void;
 }
 
-const PricingCard = ({ title, price, originalPrice, features, popular, premium, badges = ["HD", "FHD"] }: PricingCardProps) => {
+const PricingCard = ({ title, price, originalPrice, features, popular, premium, badges = ["HD", "FHD"], onSubscribe }: PricingCardProps) => {
   const badgeColor = popular && premium
     ? "bg-amber-400 text-foreground"
     : popular
@@ -69,7 +70,12 @@ const PricingCard = ({ title, price, originalPrice, features, popular, premium, 
       </ul>
 
       <div className="p-6 pt-2">
-        <button className={`w-full ${buttonClass} font-semibold py-3 rounded-lg hover:scale-[1.03] hover:shadow-lg transition-all duration-200`}>
+        <button
+          onClick={() => onSubscribe?.(title, price)}
+          data-plan={title.toUpperCase()}
+          data-price={`€${price}`}
+          className={`w-full ${buttonClass} font-semibold py-3 rounded-lg hover:scale-[1.03] hover:shadow-lg transition-all duration-200`}
+        >
           Abonneer je nu
         </button>
         <PaymentIcons />
