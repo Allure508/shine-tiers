@@ -6,18 +6,29 @@ interface PricingCardProps {
   originalPrice: string;
   features: { text: string; included: boolean; highlight?: boolean }[];
   popular?: boolean;
-  allIncluded?: boolean;
+  premium?: boolean;
+  badges?: string[];
 }
 
-const PricingCard = ({ title, price, originalPrice, features, popular }: PricingCardProps) => {
+const PricingCard = ({ title, price, originalPrice, features, popular, premium, badges = ["HD", "FHD"] }: PricingCardProps) => {
+  const badgeColor = popular && premium
+    ? "bg-amber-400 text-foreground"
+    : popular
+    ? "bg-primary text-primary-foreground"
+    : "";
+
+  const buttonClass = premium
+    ? "bg-amber-400 text-foreground hover:bg-amber-500"
+    : "bg-foreground text-card";
+
   return (
     <div
       className={`relative flex flex-col rounded-lg bg-card border border-border shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all duration-300 overflow-hidden ${
-        popular ? "ring-2 ring-primary" : ""
+        popular ? (premium ? "ring-2 ring-amber-400" : "ring-2 ring-primary") : ""
       }`}
     >
       {popular && (
-        <div className="bg-primary text-primary-foreground text-center text-xs font-bold uppercase tracking-wider py-2">
+        <div className={`${badgeColor} text-center text-xs font-bold uppercase tracking-wider py-2`}>
           Most Popular
         </div>
       )}
@@ -33,12 +44,11 @@ const PricingCard = ({ title, price, originalPrice, features, popular }: Pricing
           <span className="text-destructive">50% KORTING</span>
         </p>
         <div className="flex justify-center gap-2 mt-3">
-          <span className="inline-flex items-center justify-center border border-foreground rounded px-2 py-0.5 text-xs font-bold text-foreground">
-            HD
-          </span>
-          <span className="inline-flex items-center justify-center border border-foreground rounded px-2 py-0.5 text-xs font-bold text-foreground">
-            FHD
-          </span>
+          {badges.map((b) => (
+            <span key={b} className="inline-flex items-center justify-center border border-foreground rounded px-2 py-0.5 text-xs font-bold text-foreground">
+              {b}
+            </span>
+          ))}
         </div>
       </div>
 
@@ -58,7 +68,7 @@ const PricingCard = ({ title, price, originalPrice, features, popular }: Pricing
       </ul>
 
       <div className="p-6 pt-2">
-        <button className="w-full bg-foreground text-card font-semibold py-3 rounded-lg hover:scale-[1.03] hover:shadow-lg transition-all duration-200">
+        <button className={`w-full ${buttonClass} font-semibold py-3 rounded-lg hover:scale-[1.03] hover:shadow-lg transition-all duration-200`}>
           Abonneer je nu
         </button>
         <div className="flex items-center justify-center gap-2 mt-4 text-xs text-muted-foreground">
