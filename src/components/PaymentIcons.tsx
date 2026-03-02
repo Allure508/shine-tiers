@@ -10,9 +10,16 @@ const VisaSvg = () => (
 );
 
 const IdealSvg = () => (
-  <svg viewBox="0 0 60 48" className="h-6 w-auto rounded" xmlns="http://www.w3.org/2000/svg">
-    <rect width="60" height="48" rx="4" fill="#CC0066"/>
-    <text x="30" y="30" textAnchor="middle" fill="white" fontSize="14" fontWeight="bold" fontFamily="Arial">iDEAL</text>
+  <svg viewBox="0 0 80 50" className="h-8 w-auto" xmlns="http://www.w3.org/2000/svg">
+    <rect width="80" height="50" rx="6" fill="white" stroke="#CC0066" strokeWidth="2"/>
+    <rect x="3" y="3" width="74" height="44" rx="4" fill="white"/>
+    {/* iDEAL logo mark */}
+    <circle cx="22" cy="25" r="10" fill="#CC0066"/>
+    <circle cx="22" cy="25" r="6" fill="white"/>
+    <circle cx="22" cy="25" r="3.5" fill="#CC0066"/>
+    {/* Text */}
+    <text x="50" y="21" textAnchor="middle" fill="#CC0066" fontSize="9" fontWeight="800" fontFamily="Arial, sans-serif" letterSpacing="0.5">iDEAL</text>
+    <rect x="35" y="26" width="30" height="2" rx="1" fill="#CC0066" opacity="0.3"/>
   </svg>
 );
 
