@@ -1,4 +1,5 @@
 import { Check, Ban } from "lucide-react";
+import PaymentIcons from "./PaymentIcons";
 
 interface PricingCardProps {
   title: string;
@@ -71,13 +72,7 @@ const PricingCard = ({ title, price, originalPrice, features, popular, premium, 
         <button className={`w-full ${buttonClass} font-semibold py-3 rounded-lg hover:scale-[1.03] hover:shadow-lg transition-all duration-200`}>
           Abonneer je nu
         </button>
-        <div className="flex items-center justify-center gap-2 mt-4 text-xs text-muted-foreground">
-          <span className="font-semibold">Apple Pay</span>
-          <span className="font-semibold">VISA</span>
-          <span className="font-semibold">MC</span>
-          <span className="font-semibold">iDeal</span>
-          <span className="font-semibold">PayPal</span>
-        </div>
+        <PaymentIcons />
       </div>
     </div>
   );
