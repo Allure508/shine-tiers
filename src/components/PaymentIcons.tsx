@@ -10,17 +10,23 @@ const VisaSvg = () => (
 );
 
 const IdealSvg = () => (
-  <svg viewBox="0 0 48 48" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    {/* Background */}
-    <rect width="48" height="48" rx="8" fill="white" stroke="#D1D5DB" strokeWidth="1"/>
-    {/* Black circle with dot - iDEAL icon */}
-    <circle cx="18" cy="20" r="8" fill="#1A1A2E"/>
-    <circle cx="18" cy="17" r="2.5" fill="white"/>
-    <rect x="15.5" y="20" width="5" height="6" rx="2.5" fill="white"/>
-    {/* Text */}
-    <text x="24" y="40" textAnchor="middle" fill="#1A1A2E" fontSize="7" fontWeight="700" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="0.3">iDEAL</text>
+  <svg viewBox="0 0 100 100" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
+    {/* Outer rounded square border */}
+    <rect x="2" y="2" width="96" height="96" rx="20" ry="20" fill="white" stroke="#333" strokeWidth="4"/>
+    {/* Pink/magenta shape - right side */}
+    <path d="M50 10 C50 10, 88 10, 88 10 C88 10, 88 90, 88 90 C88 90, 50 90, 50 90 C50 90, 30 90, 20 78 C10 66, 10 50, 10 50 C10 50, 10 34, 20 22 C30 10, 50 10, 50 10 Z" fill="#CC0077" rx="10"/>
+    {/* Black dot */}
+    <circle cx="28" cy="35" r="6" fill="#1A1A1A"/>
+    {/* Black vertical bar (the "i" body) */}
+    <rect x="23" y="48" width="10" height="28" rx="3" fill="#1A1A1A"/>
+    {/* White "D" letter */}
+    <text x="62" y="72" textAnchor="middle" fill="white" fontSize="42" fontWeight="800" fontFamily="Arial, Helvetica, sans-serif">D</text>
+    {/* "EAL" text */}
+    <text x="62" y="92" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="2">EAL</text>
   </svg>
 );
+
+
 
 const PaymentIcons = () => {
   return (
