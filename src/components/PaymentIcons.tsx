@@ -11,18 +11,22 @@ const VisaSvg = () => (
 
 const IdealSvg = () => (
   <svg viewBox="0 0 100 100" className="h-7 w-auto" xmlns="http://www.w3.org/2000/svg">
-    {/* Outer rounded square border */}
-    <rect x="2" y="2" width="96" height="96" rx="20" ry="20" fill="white" stroke="#333" strokeWidth="4"/>
-    {/* Pink/magenta shape - right side */}
-    <path d="M50 10 C50 10, 88 10, 88 10 C88 10, 88 90, 88 90 C88 90, 50 90, 50 90 C50 90, 30 90, 20 78 C10 66, 10 50, 10 50 C10 50, 10 34, 20 22 C30 10, 50 10, 50 10 Z" fill="#CC0077" rx="10"/>
-    {/* Black dot */}
-    <circle cx="28" cy="35" r="6" fill="#1A1A1A"/>
-    {/* Black vertical bar (the "i" body) */}
-    <rect x="23" y="48" width="10" height="28" rx="3" fill="#1A1A1A"/>
-    {/* White "D" letter */}
-    <text x="62" y="72" textAnchor="middle" fill="white" fontSize="42" fontWeight="800" fontFamily="Arial, Helvetica, sans-serif">D</text>
-    {/* "EAL" text */}
-    <text x="62" y="92" textAnchor="middle" fill="white" fontSize="16" fontWeight="800" fontFamily="Arial, Helvetica, sans-serif" letterSpacing="2">EAL</text>
+    {/* Outer rounded border */}
+    <rect x="3" y="3" width="94" height="94" rx="18" ry="18" fill="white" stroke="#2D2D2D" strokeWidth="5"/>
+    {/* Magenta shape with curved left side */}
+    <clipPath id="innerClip">
+      <rect x="6" y="6" width="88" height="88" rx="15" ry="15"/>
+    </clipPath>
+    <g clipPath="url(#innerClip)">
+      <path d="M42 6 L94 6 L94 94 L42 94 C42 94, 22 94, 12 80 C6 70, 6 58, 6 50 C6 42, 6 30, 12 20 C22 6, 42 6, 42 6 Z" fill="#CC0066"/>
+    </g>
+    {/* Black dot (i tittle) */}
+    <circle cx="26" cy="32" r="6.5" fill="#1A1A1A"/>
+    {/* Black bar (i stem) */}
+    <rect x="20" y="46" width="12" height="30" rx="2" fill="#1A1A1A"/>
+    {/* White "DEAL" text */}
+    <text x="64" y="68" textAnchor="middle" fill="white" fontSize="30" fontWeight="900" fontFamily="Arial Black, Arial, sans-serif" letterSpacing="1">D</text>
+    <text x="64" y="86" textAnchor="middle" fill="white" fontSize="13" fontWeight="900" fontFamily="Arial Black, Arial, sans-serif" letterSpacing="2.5">EAL</text>
   </svg>
 );
 
